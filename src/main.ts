@@ -1,10 +1,7 @@
-import fs from 'fs'
-function sayMyName(name: string): void {
-    if (name === "Heisenberg") {
-      console.log("You're right 👍");
-    } else {
-      console.log("You're wrong 👎"); 
-    }
-  }
-   
-  sayMyName("Heisenberg");
+import Player from "./models/Player";
+
+console.log("Username: ");
+process.stdin.on("data", (data) => {
+  const Player1 = new Player(data.toString());
+  console.log(Player1.username);
+});
