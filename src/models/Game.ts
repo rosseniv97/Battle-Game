@@ -1,5 +1,5 @@
-import Player from "./models/Player";
-import { State } from "./types/Game";
+import Player from "./Player";
+import { State } from "../types/Game";
 
 export default class Game {
   state: State;

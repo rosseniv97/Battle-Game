@@ -1,5 +1,5 @@
 import Player from "./models/Player";
-import Game from "./Game";
+import Game from "./models/Game";
 
 const Player1 = new Player("Player1");
 const Player2 = new Player("Player2");
