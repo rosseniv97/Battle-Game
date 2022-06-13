@@ -1,5 +1,5 @@
-import { Skill, SkillSet } from "../src/types/Skills";
-export const attacks: Skill[] = [
+import { Skill, SkillSet, Attack, Defence } from "../src/types/Skills";
+export const attacks: Skill<Attack>[] = [
   {
     name: "simple",
     props: {
@@ -22,13 +22,12 @@ export const attacks: Skill[] = [
     name: "risky",
     props: {
       damageCoef: 3,
-      chanceToMissCoef: 0.5,
-      chanceToHitCoef: 0.5,
+      chanceToMiss: 0.5,
     },
   },
 ];
 
-export const defences: Skill[] = [
+export const defences: Skill<Defence>[] = [
   {
     name: "heal",
     props: {

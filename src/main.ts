@@ -1,7 +1,9 @@
 import Player from "./models/Player";
+import Game from "./Game";
 
-console.log("Username: ");
-process.stdin.on("data", (data) => {
-  const Player1 = new Player(data.toString());
-  console.log(Player1.username);
-});
+const Player1 = new Player("Player1");
+const Player2 = new Player("Player2");
+
+const game = new Game([Player1, Player2]);
+const winner = game.play();
+console.log("The winner is: " + winner?.username);

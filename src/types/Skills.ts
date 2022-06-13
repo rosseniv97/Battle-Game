@@ -1,22 +1,21 @@
-interface Attack {
+export interface Attack {
   damageCoef: number;
-  chanceToMissCoef?: number;
-  chanceToHitCoef?: number;
+  chanceToMiss?: number;
 }
 
-interface Defence {
+export interface Defence {
   healthRestored?: number;
   preventDamage?: boolean;
   reverseDamage?: boolean;
   missChanceIncrCoef?: number;
 }
 
-export interface Skill {
+export interface Skill<SkillType> {
   name: string;
-  props: Attack | Defence;
+  props: SkillType;
 }
 
 export interface SkillSet {
-  attacks: Skill[];
-  defences: Skill[];
+  attacks: Skill<Attack>[];
+  defences: Skill<Defence>[];
 }

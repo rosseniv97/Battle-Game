@@ -1,4 +1,4 @@
-import { SkillSet, Skill } from "../types/Skills";
+import { SkillSet, Skill, Attack, Defence } from "../types/Skills";
 import { skillPool } from "../../constants/skills";
 
 export default class Player {
@@ -10,16 +10,16 @@ export default class Player {
   skills: SkillSet;
 
   constructor(username: string) {
-    let attacks: Skill[] = [];
-    let defences: Skill[] = [];
+    let attacks: Skill<Attack>[] = [];
+    let defences: Skill<Defence>[] = [];
     for (let i = 0; i < 2; i++) {
       attacks = [
         ...attacks,
-        skillPool.attacks[Math.floor(3 * Math.random() + 0)],
+        skillPool.attacks[Math.round(3 * Math.random() + 0)],
       ];
       defences = [
         ...defences,
-        skillPool.defences[Math.floor(4 * Math.random() + 0)],
+        skillPool.defences[Math.round(4 * Math.random() + 0)],
       ];
     }
     this.username = username;
