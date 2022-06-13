@@ -1,5 +1,5 @@
 import { SkillSet, Skill, Attack, Defence } from "../types/Skills";
-import { skillPool } from "../../constants/skills";
+import { skillPool } from "../constants/skills";
 
 export default class Player {
   username: string;

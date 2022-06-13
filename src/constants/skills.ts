@@ -1,4 +1,4 @@
-import { Skill, SkillSet, Attack, Defence } from "../src/types/Skills";
+import { Skill, SkillSet, Attack, Defence } from "../types/Skills";
 export const attacks: Skill<Attack>[] = [
   {
     name: "simple",

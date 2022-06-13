@@ -61,12 +61,24 @@ export default class Game {
           {
             PlayerDefend.health -=
               PlayerAttack.damage * damageCoef - (healthRestored ?? 0);
+            if (PlayerDefend.health <= 0) {
+              console.log(
+                `${PlayerAttack.username}: ${PlayerAttack.health} health\n${PlayerDefend.username}: ${PlayerDefend.health} health`
+              );
+              return PlayerAttack;
+            }
           }
           break;
         case "power heal":
           {
             PlayerDefend.health -=
               PlayerAttack.damage * damageCoef - 2 * (healthRestored ?? 0);
+            if (PlayerDefend.health <= 0) {
+              console.log(
+                `${PlayerAttack.username}: ${PlayerAttack.health} health\n${PlayerDefend.username}: ${PlayerDefend.health} health`
+              );
+              return PlayerAttack;
+            }
           }
           break;
         case "shield":
@@ -82,12 +94,23 @@ export default class Game {
             PlayerDefend.health -= PlayerAttack.damage * damageCoef;
             if (reverseDamage)
               PlayerAttack.health -= PlayerAttack.damage * damageCoef;
+            if (PlayerAttack.health <= 0 || PlayerDefend.health <= 0) {
+              console.log(
+                `${PlayerAttack.username}: ${PlayerAttack.health} health\n${PlayerDefend.username}: ${PlayerDefend.health} health`
+              );
+              return PlayerAttack.health <= 0 ? PlayerDefend : PlayerAttack;
+            }
           }
           break;
         case "dodge":
           {
             PlayerDefend.health -= PlayerAttack.damage * damageCoef;
-            PlayerAttack.health -= PlayerAttack.damage * damageCoef;
+            if (PlayerDefend.health <= 0) {
+              console.log(
+                `${PlayerAttack.username}: ${PlayerAttack.health} health\n${PlayerDefend.username}: ${PlayerDefend.health} health`
+              );
+              return PlayerAttack;
+            }
           }
           break;
         default: {

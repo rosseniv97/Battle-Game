@@ -5,6 +5,6 @@
     "esModuleInterop": true
   },
   "module": "commonjs",
-  "include": ["src", "constants"],
+  "include": ["src", "src/constants"],
   "exclude": ["node_modules"]
 }
